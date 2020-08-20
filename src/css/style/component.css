@@ -346,7 +346,7 @@
 }
 
 .eui-tabs .eui-tab.active {
-    color: var(--color-passive);
+    color: var(--color-positive);
 }
 
 .eui-tabs.bottom {
@@ -360,7 +360,7 @@
 /****************************************************/
 
 .eui-tabs.eui-tabs-top .eui-tab {
-    color: var(--color-white) !important;
+    /*color: var(--color-white) !important;*/
     /*transition: font-size var(--transition);*/
 }
 
@@ -374,12 +374,12 @@
 }
 
 .eui-tabs.eui-tabs-top .eui-tab.active {
-    font-size: 0.2rem;
+    font-size: 0.18rem;
     /*transition: font-size var(--transition);*/
 }
 
 .eui-tabs.eui-tabs-top .eui-tab.active .tab-border {
-    background: var(--color-white);
+    background: var(--color-positive);
     transition: background var(--transition);
 }
 

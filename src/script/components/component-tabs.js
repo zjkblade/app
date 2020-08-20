@@ -17,7 +17,7 @@ Vue.component('e-tabs', {
 });
 
 Vue.component('e-top-tabs', {
-    template: `<div v-cloak=""  slot="body" class="eui-tabs eui-tabs-top eui-tabs-v relative">
+    template: `<div v-cloak="" slot="body" class="eui-tabs eui-tabs-top eui-tabs-v relative">
             <div class="eui-tab" v-cloak="" v-for="tab in tabs" :class="{active:tabSelected === tab.name}" @click="clickTab(tab.name)">
                 <span v-cloak="">{{tab.label}}</span>
                 <span class="absolute tab-border"></span>

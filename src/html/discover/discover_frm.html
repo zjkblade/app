@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
     <link href="../../css/common.css" rel="stylesheet">
+    <link href="../../script/lib/swiper-bundle.min.css" rel="stylesheet">
 
     <style>
         #app {
@@ -14,6 +15,8 @@
     </style>
     <script src="../../script/lib/app.responsive.js"></script>
     <script src="../../script/lib/vue.min.js"></script>
+    <script src="../../script/lib/swiper-bundle.min.js"></script>
+    <script src="../../script/lib/vue-awesome-swiper.js"></script>
     <script src="../../script/lib/api.js"></script>
     <script src="../../script/lib/jquery-3.4.1.min.js"></script>
     <script src="../../script/common.js"></script>
@@ -21,12 +24,44 @@
     <script src="../../script/mixins.js"></script>
     <script src="../../script/filters.js"></script>
     <script src="../../script/components/component-header.js"></script>
+    <script src="../../script/components/component-tabs.js"></script>
 </head>
 <body>
-<div id="app" class="padding-bottom-20">
-
+<div id="app" class="padding-top-50">
+    <div class="fixed top eui-block bg-white">
+        <e-top-tabs :tabs="tabs" :tab-selected="selectedTab" @event-tab-click="tabClick"></e-top-tabs>
+    </div>
+    <swiper :options="swiperOptions" ref="swiper">
+        <swiper-slide>
+            <div style="width: 100%;height: 150px;" class="bg-positive"></div>
+        </swiper-slide>
+        <swiper-slide>
+            <div style="width: 100%;height: 150px;" class="bg-passive"></div>
+        </swiper-slide>
+        <swiper-slide>
+            <div style="width: 100%;height: 150px;" class="bg-orange"></div>
+        </swiper-slide>
+        <div class="swiper-pagination" slot="pagination"></div>
+    </swiper>
+    <div class="eui-list">
+        <div class="eui-item bg-white padding-tb-10 padding-right-10" v-for="item of 0,100">
+            <div class="eui-item-left">
+                <div style="width: 100px;height: 80px;" class="border"></div>
+            </div>
+            <div class="eui-item-body flex flex-column jc-between" style="align-self: stretch">
+                <div class="color-121415">
+                    <span>关于商城关于商城关于商城关于商城关于商城关</span>
+                </div>
+                <div class="fs-12 flex jc-between color-787C80">
+                    <span>6天前</span>
+                    <span>9999999人浏览</span>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <script>
+  Vue.use(window.VueAwesomeSwiper);
   new Vue({
     filters: filters,
     mixins: [],
@@ -35,6 +70,21 @@
       return {
         name: '',
         frm: '',
+        swiperOptions: {
+          autoplay: {delay: 5000},
+          loop: true,
+          pagination: {
+            el: '.swiper-pagination'
+          },
+        },
+        selectedTab: 'GG',
+        tabs: [
+          {label: '公告', name: 'GG'},
+          {label: '教程', name: 'JC'},
+          {label: '商业', name: 'SY'},
+          {label: '生活', name: 'SH'},
+          {label: '社区', name: 'SQ'},
+        ]
       };
     },
     computed: {},
@@ -62,8 +112,9 @@
         var $this = this;
         util.app.closeWindow($this.name);
       },
-      login: function () {
+      tabClick: function (tab) {
         var $this = this;
+        $this.selectedTab = tab;
         // TODO
         util.app.closeWindow($this.name);
       },
