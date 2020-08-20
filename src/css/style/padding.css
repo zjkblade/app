@@ -1,0 +1,250 @@
+
+.padding-5-8 {
+    padding: 0.05rem 0.08rem !important;
+}
+
+.padding {
+    padding: 0.10rem 0.16rem !important;
+}
+
+.padding-5 {
+    padding: 0.05rem !important;
+}
+
+.padding-8 {
+    padding: 0.08rem !important;
+}
+
+.padding-10 {
+    padding: 0.10rem !important;
+}
+
+.padding-20 {
+    padding: 0.20rem !important;
+}
+
+.padding-tb-5 {
+    padding-top: 0.05rem !important;
+    padding-bottom: 0.05rem !important;
+}
+
+.padding-tb-8 {
+    padding-top: 0.08rem !important;
+    padding-bottom: 0.08rem !important;
+}
+
+.padding-tb-10 {
+    padding-top: 0.10rem !important;
+    padding-bottom: 0.10rem !important;
+}
+
+.padding-tb-12 {
+    padding-top: 0.12rem !important;
+    padding-bottom: 0.12rem !important;
+}
+
+.padding-tb-14 {
+    padding-top: 0.14rem !important;
+    padding-bottom: 0.14rem !important;
+}
+
+.padding-tb-15 {
+    padding-top: 0.15rem !important;
+    padding-bottom: 0.15rem !important;
+}
+
+.padding-tb-16 {
+    padding-top: 0.16rem !important;
+    padding-bottom: 0.16rem !important;
+}
+
+.padding-tb-20 {
+    padding-top: 0.20rem !important;
+    padding-bottom: 0.20rem !important;
+}
+
+.padding-tb-23 {
+    padding-top: 0.23rem !important;
+    padding-bottom: 0.23rem !important;
+}
+
+.padding-tb-30 {
+    padding-top: 0.30rem !important;
+    padding-bottom: 0.30rem !important;
+}
+
+.padding-lr-8 {
+    padding-left: 0.08rem !important;
+    padding-right: 0.08rem !important;
+}
+
+.padding-lr-2 {
+    padding-left: 0.02rem !important;
+    padding-right: 0.02rem !important;
+}
+
+.padding-lr-5 {
+    padding-left: 0.05rem !important;
+    padding-right: 0.05rem !important;
+}
+
+.padding-lr-10 {
+    padding-left: 0.10rem !important;
+    padding-right: 0.10rem !important;
+}
+
+.padding-lr-16 {
+    padding-left: 0.16rem !important;
+    padding-right: 0.16rem !important;
+}
+
+.padding-lr-20 {
+    padding-left: 0.20rem !important;
+    padding-right: 0.20rem !important;
+}
+
+.padding-lr-25 {
+    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
+}
+
+.padding-lr-30 {
+    padding-left: 0.30rem !important;
+    padding-right: 0.30rem !important;
+}
+
+.padding-lr-32 {
+    padding-left: 0.32rem !important;
+    padding-right: 0.32rem !important;
+}
+
+.padding-lr-48 {
+    padding-left: 0.48rem !important;
+    padding-right: 0.48rem !important;
+}
+
+.padding-left-2 {
+    padding-left: 0.02rem !important;
+}
+
+.padding-left-5 {
+    padding-left: 0.05rem !important;
+}
+
+.padding-left-8 {
+    padding-left: 0.08rem !important;
+}
+
+.padding-left-10 {
+    padding-left: 0.10rem !important;
+}
+
+.padding-left-16 {
+    padding-left: 0.16rem !important;
+}
+
+.padding-left-32 {
+    padding-left: 0.32rem !important;
+}
+
+.padding-left-40 {
+    padding-left: 0.40rem !important;
+}
+
+.padding-left-120 {
+    padding-left: 1.2rem !important;
+}
+
+.padding-right-5 {
+    padding-right: 0.05rem !important;
+}
+
+.padding-right-10 {
+    padding-right: 0.10rem !important;
+}
+
+.padding-right-16 {
+    padding-right: 0.16rem !important;
+}
+
+.padding-right-40 {
+    padding-right: 0.40rem !important;
+}
+
+.padding-bottom-5 {
+    padding-bottom: 0.05rem !important;
+}
+
+.padding-bottom-10 {
+    padding-bottom: 0.10rem !important;
+}
+
+.padding-bottom-15 {
+    padding-bottom: 0.15rem !important;
+}
+
+.padding-bottom-20 {
+    padding-bottom: 0.20rem !important;
+}
+
+.padding-bottom-23 {
+    padding-bottom: 0.23rem !important;
+}
+
+.padding-bottom-30 {
+    padding-bottom: 0.30rem !important;
+}
+
+.padding-top-10 {
+    padding-top: 0.10rem !important;
+}
+
+.padding-top-20 {
+    padding-top: 0.20rem !important;
+}
+
+.padding-top-30 {
+    padding-top: 0.30rem !important;
+}
+
+.padding-top-35 {
+    padding-top: 0.35rem !important;
+}
+
+.padding-top-40 {
+    padding-top: 0.40rem !important;
+}
+
+.padding-top-50 {
+    padding-top: 0.50rem !important;
+}
+
+.padding-top-55 {
+    padding-top: 0.55rem !important;
+}
+
+.padding-top-65 {
+    padding-top: 0.65rem !important;
+}
+
+.padding-top-85 {
+    padding-top: 0.85rem !important;
+}
+
+.padding-top-130 {
+    padding-top: 1.3rem !important;
+}
+
+.no-padding {
+    padding: 0 !important;
+}
+
+.padding-tb-0 {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.padding-lr-0 {
+    padding-top: 0 !important;
+    padding-left: 0 !important;
+}

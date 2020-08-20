@@ -1,0 +1,96 @@
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.fixed {
+    position: fixed;
+    z-index: 10000;
+}
+
+.top {
+    top: 0;
+}
+
+.left {
+    left: 0;
+}
+
+.bottom {
+    bottom: 0;
+}
+
+.right {
+    right: 0;
+}
+
+.flex {
+    display: flex;
+}
+
+.stretch {
+    align-self: stretch;
+}
+
+.flex-row {
+    flex-direction: row !important;
+}
+
+.flex-equal {
+    width: 100%;
+    flex: 1;
+}
+
+.flex-column {
+    flex-direction: column !important;;
+}
+
+.flex-wrap {
+    flex-wrap: wrap !important;;
+}
+
+.jc-center {
+    justify-content: center !important;
+}
+
+.jc-start {
+    justify-content: flex-start !important;;
+}
+
+.jc-end {
+    justify-content: flex-end !important;;
+}
+
+.jc-between {
+    justify-content: space-between !important;;
+}
+
+.jc-around {
+    justify-content: space-around !important;;
+}
+
+.ai-start {
+    align-items: flex-start !important;;
+}
+
+.ai-center {
+    align-items: center !important;;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.ai-end {
+    align-items: flex-end !important;;
+}
+
+.eui-block {
+    width: 100%;
+}

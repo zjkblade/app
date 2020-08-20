@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+    <link href="../css/common.css" rel="stylesheet">
+
+    <style>
+        #app {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background: var(--color-gray1);
+        }
+
+        #header {
+            height: 0;
+        }
+
+        .eui-tabs {
+            padding-top: 0.06rem;
+            padding-bottom: 0.03rem;
+        }
+    </style>
+    <script src="../script/lib/app.responsive.js"></script>
+    <script src="../script/lib/vue.min.js"></script>
+    <script src="../script/lib/api.js"></script>
+    <script src="../script/lib/jquery-3.4.1.min.js"></script>
+    <script src="../script/common.js"></script>
+    <script src="../script/service.js"></script>
+    <script src="../script/mixins.js"></script>
+    <script src="../script/components/component-tabs.js"></script>
+</head>
+<body>
+<div id="app">
+    <e-tabs :tab-selected="frm" :tabs="tabs" @event-tab-click="openTab " id="navigator"></e-tabs>
+</div>
+<script>
+  new Vue({
+    mixins: [],
+    el: '#app',
+    data: function () {
+      return {
+        name: '',
+        frm: '',
+        frameGroupName: '',
+        tabs: [
+          {icon: 'icon-home',    label: '首页', name: 'home', url: './home/home_win.html'},
+          {icon: 'icon-faxian', label: '发现', name: 'discover', url: './discover/discover_win.html'},
+          {icon: 'icon-shopping-car',    label: '购物车', name: 'shopping', url: './shopping/shopping_win.html'},
+          {icon: 'icon-user',    label: '个人中心', name: 'user', url: './user/user_win.html'},
+        ],
+      };
+    },
+    mounted: function () {
+      var $this = this;
+      util.app.ready(function () {
+        $this.name = util.app.param('name');
+        $this.init();
+      });
+    },
+    methods: {
+      init: function () {
+        var $this = this;
+        $this.listen();
+        $this.initFrames();
+        $this.openTab($this.tabs[1], 1);
+      },
+      listen: function () {
+        var $this = this;
+        util.app.listen('keyback', function () {
+          $this.close();
+        });
+        util.app.listen('viewappear', function () {
+        });
+      },
+      initFrames: function () {
+        var $this = this;
+        var index = 0;
+        var navigatorHeight = $api.offset($api.byId("navigator")).h;
+        var height = util.app.winHeight() - navigatorHeight;
+        // var tabs = [];
+        // $this.tabs = tabs;
+        if (util.app.isProd()) {
+          $this.frameGroupName = 'tabs-group' + new Date().getTime();
+          api.openFrameGroup({
+            name: $this.frameGroupName,
+            scrollEnabled: false,
+            rect: {
+              x: 0,
+              y: 0,
+              w: util.app.winWidth(),
+              h: height
+            },
+            index: index,
+            preload: $this.tabs.length - 1,
+            frames: $this.tabs.map(function (tab) {
+              tab.bounces = false;
+              tab.name = $this.userInfo.username + '_' + tab.name;
+              // tab.overScrollMode = 'scrolls';
+              // tab.defaultRefreshHeader = 'pull';
+              return tab;
+            })
+          }, function (res) {
+            $this.frm = $this.tabs[res.index].name;
+          });
+        }
+      },
+      openTab: function (tab, index) {
+        var $this = this;
+        var navigatorHeight = $api.offset($api.byId("navigator")).h;
+        var height = util.app.winHeight() - navigatorHeight;
+        if (tab && $this.frm !== tab.name) {
+          if (util.app.isProd()) {
+            api.setFrameGroupIndex({
+              name: $this.frameGroupName,
+              index: index,
+              reload: false,
+              scroll: true,
+            });
+          } else {
+            if ($this.frm) {
+              util.app.closeFrame($this.frm);
+            }
+            util.app.openFrame(tab.name, tab.url, {y: 0, h: height});
+          }
+          $this.frm = tab.name;
+        }
+      },
+      close: function () {
+        api.closeWidget();
+      }
+    }
+  });
+</script>
+
+</body>
+
+</html>

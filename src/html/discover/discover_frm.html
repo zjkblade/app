@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+    <link href="../../css/common.css" rel="stylesheet">
+
+    <style>
+        #app {
+            position: relative;
+            width: 100vw;
+        }
+    </style>
+    <script src="../../script/lib/app.responsive.js"></script>
+    <script src="../../script/lib/vue.min.js"></script>
+    <script src="../../script/lib/api.js"></script>
+    <script src="../../script/lib/jquery-3.4.1.min.js"></script>
+    <script src="../../script/common.js"></script>
+    <script src="../../script/service.js"></script>
+    <script src="../../script/mixins.js"></script>
+    <script src="../../script/filters.js"></script>
+    <script src="../../script/components/component-header.js"></script>
+</head>
+<body>
+<div id="app" class="padding-bottom-20">
+
+</div>
+<script>
+  new Vue({
+    filters: filters,
+    mixins: [],
+    el: '#app',
+    data: function () {
+      return {
+        name: '',
+        frm: '',
+      };
+    },
+    computed: {},
+    mounted: function () {
+      var $this = this;
+      util.app.ready(function () {
+        $this.name = util.app.param('name');
+        $this.init();
+      });
+    },
+    methods: {
+      init: function () {
+        var $this = this;
+        $this.listen();
+      },
+      listen: function () {
+        var $this = this;
+        util.app.listen('keyback', function () {
+          $this.close();
+        });
+        util.app.listen('viewappear', function () {
+        });
+      },
+      close: function () {
+        var $this = this;
+        util.app.closeWindow($this.name);
+      },
+      login: function () {
+        var $this = this;
+        // TODO
+        util.app.closeWindow($this.name);
+      },
+    }
+  });
+</script>
+
+</body>
+
+</html>

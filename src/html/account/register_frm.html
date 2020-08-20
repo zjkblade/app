@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+    <link href="../../css/common.css" rel="stylesheet">
+
+    <style>
+        #app {
+            position: relative;
+            width: 100vw;
+        }
+    </style>
+    <script src="../../script/lib/app.responsive.js"></script>
+    <script src="../../script/lib/vue.min.js"></script>
+    <script src="../../script/lib/api.js"></script>
+    <script src="../../script/lib/jquery-3.4.1.min.js"></script>
+    <script src="../../script/common.js"></script>
+    <script src="../../script/service.js"></script>
+    <script src="../../script/mixins.js"></script>
+    <script src="../../script/filters.js"></script>
+    <script src="../../script/components/component-header.js"></script>
+</head>
+<body>
+<div id="app" class="padding-bottom-20">
+    <div class="padding-lr-10 fs-13 color-1F2325" v-cloak="">
+        <div class="flex flex-column jc-center ai-center padding-top-50 padding-bottom-20">
+            <div class="eui-size-90 border round bg-positive"></div>
+        </div>
+        <div class="eui-list padding-lr-32">
+            <div class="eui-item margin-top-20 bg-white no-border radius-50">
+                <div class="eui-item-body">
+                    <input type="text" class="eui-input bg-white padding-left-16 radius-50 no-border"
+                           placeholder="请输入手机号"/>
+                </div>
+            </div>
+            <div class="eui-item margin-top-20 bg-white no-border radius-50">
+                <div class="eui-item-body">
+                    <input type="text" class="eui-input bg-white padding-left-16 radius-50 no-border"
+                           placeholder="请输入昵称"/>
+                </div>
+            </div>
+            <div class="eui-item margin-top-20 bg-white no-border radius-50">
+                <div class="eui-item-body">
+                    <input v-if="showPassword" type="text"
+                           class="eui-input  padding-left-16 radius-50 no-border"
+                           placeholder="请输入密码"/>
+                    <input v-if="!showPassword" type="password"
+                           class="eui-input bg-white padding-left-16 radius-50 no-border"
+                           placeholder="请输入密码"/>
+                </div>
+                <div class="eui-item-right">
+                    <div @click="showPassword = !showPassword">
+                        <span v-if="!showPassword" class="fs-25 iconfont icon-eye-close"></span>
+                        <span v-if="showPassword" class="fs-25 iconfont icon-eye-open"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="eui-item margin-top-20 bg-white no-border radius-50">
+                <div class="eui-item-body">
+                    <input type="password" class="eui-input bg-white padding-left-16 radius-50 no-border"
+                           placeholder="确认密码"/>
+                </div>
+            </div>
+
+            <div class="eui-item margin-top-20  no-border ">
+                <div class="eui-item-body">
+                    <input type="password" class="eui-input bg-white padding-left-16 radius-50 no-border"
+                           placeholder="输入右图中结果"/>
+                </div>
+                <div class="eui-item-right flex ai-end">
+                    <div style="width: 80px;height: 35px" class="border"></div>
+                    <span class="eui-item-left color-positive fs-12" style="align-self: unset">点击刷新</span>
+                </div>
+            </div>
+
+            <div class="eui-item margin-top-20 bg-white no-border radius-50">
+                <div class="eui-item-body">
+                    <input type="password" class="eui-input bg-white padding-left-16 radius-50 no-border"
+                           placeholder="验证码"/>
+                </div>
+                <div class="eui-item-right">
+                    <span>获取重置码</span>
+                </div>
+            </div>
+
+            <div class="margin-top-50 eui-btn eui-btn-block color-white radius-50 no-border bg-black" @click="register">
+                注册
+            </div>
+
+            <div class="margin-top-30 flex jc-center ai-center">
+                <div class="eui-check-box" :class="{active: form.isAgree}">
+                    <div class="eui-radio">
+                        <div></div>
+                    </div>
+                </div>
+                <span class="padding-lr-10" @click="form.isAgree = !form.isAgree">同意</span>
+                <span class="color-positive" @click="showModal">注册协议</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="eui-modal padding-lr-20" :class="{visible:visible}">
+        <div class="eui-card">
+            <div class="eui-card-header">
+                <div class="eui-block flex jc-center">
+                    <span>注册协议</span>
+                </div>
+            </div>
+            <div class="eui-card-body" style="max-height: 400px;overflow-y: auto">
+                <div class="flex jc-center padding-tb-5 fs-18">活力链注册协议</div>
+                <div class="fs-14">
+                    注册协议注册协议注册协议注册协议注册协议注册协议注册协议
+                    注册协议注册协议注册协议注册协议注册协议注册协议注册协议
+                    注册协议注册协议注册协议注册协议注册协议注册协议注册协议
+                    注册协议注册协议注册协议注册协议注册协议注册协议注册协议
+                    注册协议注册协议注册协议注册协议注册协议注册协议注册协议
+                    注册协议注册协议注册协议注册协议注册协议注册协议注册协议
+                    注册协议注册协议注册协议注册协议注册协议注册协议注册协议
+                    注册协议注册协议注册协议注册协议注册协议注册协议注册协议
+                    注册协议注册协议注册协议注册协议注册协议注册协议注册协议
+                    注册协议注册协议注册协议注册协议注册协议注册协议注册协议
+                    注册协议注册协议注册协议注册协议注册协议注册协议注册协议
+                    注册协议注册协议注册协议注册协议注册协议注册协议注册协议
+                    注册协议注册协议注册协议注册协议注册协议注册协议注册协议
+                    注册协议注册协议注册协议注册协议注册协议注册协议注册协议
+                    注册协议注册协议注册协议注册协议注册协议注册协议注册协议
+                    注册协议注册协议注册协议注册协议注册协议注册协议注册协议
+                    注册协议注册协议注册协议注册协议注册协议注册协议注册协议
+                    注册协议注册协议注册协议注册协议注册协议注册协议注册协议
+                </div>
+            </div>
+            <div class="eui-card-footer">
+                <div class="eui-block flex jc-center">
+                    <div class="eui-size-30 radius-40 flex ai-center jc-center border border-black">
+                        <span class="iconfont icon-close" @click="visible = !visible"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+  new Vue({
+    filters: filters,
+    mixins: [],
+    el: '#app',
+    data: function () {
+      return {
+        name: '',
+        frm: '',
+        visible: false,
+        showPassword: false,
+        form: {
+          mobile: null,
+          password: null,
+          passwordConfirm: null,
+          captcha: null,
+          isAgree: null,
+        }
+      };
+    },
+    computed: {},
+    mounted: function () {
+      var $this = this;
+      util.app.ready(function () {
+        $this.name = util.app.param('name');
+        $this.init();
+      });
+    },
+    methods: {
+      init: function () {
+        var $this = this;
+        $this.listen();
+      },
+      listen: function () {
+        var $this = this;
+        util.app.listen('keyback', function () {
+          $this.close();
+        });
+        util.app.listen('viewappear', function () {
+        });
+      },
+      close: function () {
+        var $this = this;
+        util.app.closeWindow($this.name);
+      },
+      showModal: function () {
+        var $this = this;
+        $this.visible = true
+      },
+      agree: function () {
+        var $this = this;
+        // TODO
+        util.app.closeWindow($this.name);
+      },
+      register: function () {
+        var $this = this;
+        // TODO
+        util.app.closeWindow($this.name);
+      },
+    }
+  });
+</script>
+
+</body>
+
+</html>

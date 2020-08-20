@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+    <link href="../../css/common.css" rel="stylesheet">
+
+    <style>
+        #app {
+            position: relative;
+            width: 100vw;
+        }
+    </style>
+    <script src="../../script/lib/app.responsive.js"></script>
+    <script src="../../script/lib/vue.min.js"></script>
+    <script src="../../script/lib/api.js"></script>
+    <script src="../../script/lib/jquery-3.4.1.min.js"></script>
+    <script src="../../script/common.js"></script>
+    <script src="../../script/service.js"></script>
+    <script src="../../script/mixins.js"></script>
+    <script src="../../script/filters.js"></script>
+    <script src="../../script/components/component-header.js"></script>
+</head>
+<body>
+<div id="app" class="padding-bottom-20">
+    <div class="padding-lr-10 fs-13 color-1F2325" v-cloak="">
+        <div class="flex flex-column jc-center ai-center padding-top-50 padding-bottom-20">
+            <div class="eui-size-90 border round bg-positive"></div>
+        </div>
+        <div class="eui-list padding-lr-32">
+            <div class="flex jc-center padding-tb-5">
+                <span class="color-positive">若你忘记了密码，可在此重置新密码。</span>
+            </div>
+
+            <div class="eui-item margin-top-20 bg-white no-border radius-50">
+                <div class="eui-item-body">
+                    <input type="text" class="eui-input bg-white padding-left-16 radius-50 no-border"
+                           placeholder="请输入手机号"/>
+                </div>
+            </div>
+
+            <div class="eui-item margin-top-20 bg-white no-border radius-50">
+                <div class="eui-item-body">
+                    <input v-if="showPassword" type="text"
+                           class="eui-input  padding-left-16 radius-50 no-border"
+                           placeholder="请输入新密码"/>
+                    <input v-if="!showPassword" type="password"
+                           class="eui-input bg-white padding-left-16 radius-50 no-border"
+                           placeholder="请输入新密码"/>
+                </div>
+                <div class="eui-item-right">
+                    <div @click="showPassword = !showPassword">
+                        <span v-if="!showPassword" class="fs-25 iconfont icon-eye-close"></span>
+                        <span v-if="showPassword" class="fs-25 iconfont icon-eye-open"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="eui-item margin-top-20 bg-white no-border radius-50">
+                <div class="eui-item-body">
+                    <input type="password" class="eui-input bg-white padding-left-16 radius-50 no-border"
+                           placeholder="请再次输入新密码"/>
+                </div>
+            </div>
+
+            <div class="eui-item margin-top-20 bg-white no-border radius-50">
+                <div class="eui-item-body">
+                    <input type="password" class="eui-input bg-white padding-left-16 radius-50 no-border"
+                           placeholder="验证码"/>
+                </div>
+                <div class="eui-item-right">
+                    <span>获取重置码</span>
+                </div>
+            </div>
+
+            <div class="margin-top-50 eui-btn eui-btn-block color-white radius-50 no-border bg-black" @click="submit">
+                重置密码
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+  new Vue({
+    filters: filters,
+    mixins: [],
+    el: '#app',
+    data: function () {
+      return {
+        name: '',
+        frm: '',
+        showPassword: false,
+        form: {
+          mobile: null,
+          password: null,
+          passwordConfirm: null,
+          captcha: null,
+        }
+      };
+    },
+    computed: {},
+    mounted: function () {
+      var $this = this;
+      util.app.ready(function () {
+        $this.name = util.app.param('name');
+        $this.init();
+      });
+    },
+    methods: {
+      init: function () {
+        var $this = this;
+        $this.listen();
+      },
+      listen: function () {
+        var $this = this;
+        util.app.listen('keyback', function () {
+          $this.close();
+        });
+        util.app.listen('viewappear', function () {
+        });
+      },
+      close: function () {
+        var $this = this;
+        util.app.closeWindow($this.name);
+      },
+      submit: function () {
+        var $this = this;
+        // TODO
+        util.app.closeWindow($this.name);
+      },
+    }
+  });
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+{
+  "id": "1844386",
+  "name": "tt",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "129303",
+      "name": "eye",
+      "font_class": "eye-open",
+      "unicode": "e8e1",
+      "unicode_decimal": 59617
+    },
+    {
+      "icon_id": "383604",
+      "name": "个人中心",
+      "font_class": "user",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "1207843",
+      "name": "right",
+      "font_class": "right",
+      "unicode": "e655",
+      "unicode_decimal": 58965
+    },
+    {
+      "icon_id": "1418248",
+      "name": "home",
+      "font_class": "home",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
+      "icon_id": "6664158",
+      "name": "eye",
+      "font_class": "eye-close",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "7708052",
+      "name": "发现",
+      "font_class": "faxian",
+      "unicode": "e621",
+      "unicode_decimal": 58913
+    },
+    {
+      "icon_id": "7826085",
+      "name": "close",
+      "font_class": "close",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "9648341",
+      "name": "Left",
+      "font_class": "left",
+      "unicode": "e709",
+      "unicode_decimal": 59145
+    },
+    {
+      "icon_id": "10026290",
+      "name": "购物车",
+      "font_class": "shopping-car",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    }
+  ]
+}

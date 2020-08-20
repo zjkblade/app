@@ -1,0 +1,45 @@
+
+.border {
+    border: 0.01rem solid var(--color-gray2) !important;
+}
+
+.border-tb {
+    border-top: 0.01rem solid var(--color-gray2) !important;
+    border-bottom: 0.01rem solid var(--color-gray2) !important;
+}
+
+.border-top {
+    border-top: 0.01rem solid var(--color-gray2) !important;
+}
+
+.border-bottom {
+    border-bottom: 0.01rem solid var(--color-gray2) !important;
+}
+
+.border-left {
+    border-left: 0.01rem solid var(--color-gray2) !important;
+}
+
+.border-left-dash {
+    border-left: 0.01rem dashed var(--color-gray2) !important;
+}
+
+.border-right {
+    border-right: 0.01rem solid var(--color-gray2) !important;
+}
+
+.border-passive {
+    border-color: var(--color-passive) !important;
+}
+
+.border-positive {
+    border-color: var(--color-positive) !important;
+}
+
+.border-black {
+    border-color: var(--color-black) !important;
+}
+
+.no-border {
+    border: unset !important;
+}
