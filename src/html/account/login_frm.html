@@ -57,35 +57,14 @@
 <script>
   new Vue({
     filters: filters,
-    mixins: [],
+    mixins: [frmpage],
     el: '#app',
     data: function () {
       return {
-        name: '',
-        frm: '',
       };
     },
     computed: {},
-    mounted: function () {
-      var $this = this;
-      util.app.ready(function () {
-        $this.name = util.app.param('name');
-        $this.init();
-      });
-    },
     methods: {
-      init: function () {
-        var $this = this;
-        $this.listen();
-      },
-      listen: function () {
-        var $this = this;
-        util.app.listen('keyback', function () {
-          $this.close();
-        });
-        util.app.listen('viewappear', function () {
-        });
-      },
       close: function () {
         var $this = this;
         util.app.closeWindow($this.name);

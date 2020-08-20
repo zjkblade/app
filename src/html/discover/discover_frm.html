@@ -64,12 +64,9 @@
   Vue.use(window.VueAwesomeSwiper);
   new Vue({
     filters: filters,
-    mixins: [],
-    el: '#app',
+    mixins: [frmpage],
     data: function () {
       return {
-        name: '',
-        frm: '',
         swiperOptions: {
           autoplay: {delay: 5000},
           loop: true,
@@ -87,31 +84,7 @@
         ]
       };
     },
-    computed: {},
-    mounted: function () {
-      var $this = this;
-      util.app.ready(function () {
-        $this.name = util.app.param('name');
-        $this.init();
-      });
-    },
     methods: {
-      init: function () {
-        var $this = this;
-        $this.listen();
-      },
-      listen: function () {
-        var $this = this;
-        util.app.listen('keyback', function () {
-          $this.close();
-        });
-        util.app.listen('viewappear', function () {
-        });
-      },
-      close: function () {
-        var $this = this;
-        util.app.closeWindow($this.name);
-      },
       tabClick: function (tab) {
         var $this = this;
         $this.selectedTab = tab;

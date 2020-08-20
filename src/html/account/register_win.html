@@ -30,44 +30,13 @@
 </div>
 <script>
   new Vue({
-    el: '#app',
+    mixins: [winpage],
     data: function () {
       return {
-        name: '',
         frm: './register_frm.html',
       };
     },
-    mounted: function () {
-      var $this = this;
-      util.app.ready(function () {
-        util.app.fixStatusBar('header');
-        $this.name = util.app.param('name');
-        $this.init();
-      });
-    },
     methods: {
-      init: function () {
-        var $this = this;
-        $this.listen();
-        $this.openFrame();
-      },
-      listen: function () {
-        var $this = this;
-        util.app.listen('keyback', function () {
-          $this.close();
-        });
-        util.app.listen('viewappear', function () {
-        });
-      },
-      openFrame: function () {
-        var $this = this;
-        var headerHeight = $api.offset($api.byId("header")).h;
-        util.app.openFrame($this.name, $this.frm, {y: headerHeight}, {id: $this.id});
-      },
-      close: function () {
-        var $this = this;
-        util.app.closeWindow($this.name);
-      },
     }
   });
 </script>
