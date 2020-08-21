@@ -61,7 +61,9 @@ var winpage = {
   mounted: function () {
     var $this = this;
     util.app.ready(function () {
-      util.app.fixStatusBar('header');
+      if ($api.byId("header")) {
+        util.app.fixStatusBar('header');
+      }
       $this.name = util.app.param('name');
       $this.listen();
       $this.init();
@@ -79,8 +81,10 @@ var winpage = {
     },
     openFrame: function () {
       var $this = this;
-      var headerHeight = $api.offset($api.byId("header")).h;
-      util.app.openFrame($this.name, $this.frm, {y: headerHeight}, {id: $this.id});
+      var headerHeight = $api.byId("header") ? $api.offset($api.byId("header")).h : 0;
+      if ($this.frm) {
+        util.app.openFrame($this.name, $this.frm, {y: headerHeight}, {id: $this.id});
+      }
     },
     close: function () {
       var $this = this;

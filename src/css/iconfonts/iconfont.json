@@ -6,6 +6,69 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "1381345",
+      "name": "copy",
+      "font_class": "copy",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "883931",
+      "name": "客服",
+      "font_class": "kefu",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
+      "icon_id": "7216348",
+      "name": "设置",
+      "font_class": "shezhi",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "7629065",
+      "name": "签到",
+      "font_class": "qiandao",
+      "unicode": "e6b8",
+      "unicode_decimal": 59064
+    },
+    {
+      "icon_id": "1172715",
+      "name": "付款",
+      "font_class": "daifukuan",
+      "unicode": "e646",
+      "unicode_decimal": 58950
+    },
+    {
+      "icon_id": "1287691",
+      "name": "待发货",
+      "font_class": "daifahuo",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "3849961",
+      "name": "待评价",
+      "font_class": "daipingjia",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "5270856",
+      "name": "退货/售后-我的",
+      "font_class": "shouhou",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
+      "icon_id": "14734811",
+      "name": "待收货",
+      "font_class": "daishouhuo",
+      "unicode": "e63a",
+      "unicode_decimal": 58938
+    },
+    {
       "icon_id": "129303",
       "name": "eye",
       "font_class": "eye-open",

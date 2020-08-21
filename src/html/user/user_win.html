@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+    <link href="../../css/common.css" rel="stylesheet">
+
+    <style>
+        #app {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background: var(--color-gray1);
+            overflow: hidden;
+        }
+
+        .user-grids .user-grid {
+            width: 25%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .user-grids .user-grid > div:last-child {
+            margin-top: 5px;
+            font-size: 13px;
+        }
+    </style>
+    <script src="../../script/lib/app.responsive.js"></script>
+    <script src="../../script/lib/vue.min.js"></script>
+    <script src="../../script/lib/api.js"></script>
+    <script src="../../script/lib/jquery-3.4.1.min.js"></script>
+    <script src="../../script/common.js"></script>
+    <script src="../../script/service.js"></script>
+    <script src="../../script/mixins.js"></script>
+</head>
+<body>
+<div id="app">
+    <div id="header" class="bg-positive">
+        <div class="flex jc-end ai-center color-white padding-right-10">
+            <div class="flex ai-center">
+                <span class="fs-20 iconfont icon-qiandao"></span>
+                <span class="fs-12">已经签</span>
+            </div>
+            <div class="flex ai-center margin-left-10">
+                <span class="fs-20 iconfont icon-kefu"></span>
+            </div>
+            <div class="flex ai-center margin-left-10">
+                <span class="fs-20 iconfont icon-shezhi"></span>
+            </div>
+        </div>
+        <div class="eui-list">
+            <div class="eui-item">
+                <div class="eui-item-left">
+                    <div class="eui-size-60 bg-gray0 round"></div>
+                </div>
+                <div class="eui-item-body color-white">
+                    <div class="margin-bottom-5">名字</div>
+                    <div class="flex fs-12">
+                        <div class="bg-orange radius-3 padding-2 padding-lr-10">注册天数 11</div>
+                        <div class="bg-orange radius-3 padding-2 padding-lr-10 margin-left-5">
+                            <span>ID JDkD1Ng1</span>
+                            <span class="margin-left-5 iconfont icon-copy"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="padding-tb-10 color-white">
+            <div class="flex">
+                <div class="flex-equal flex jc-center">
+                    <span>今日活力值</span>
+                </div>
+                <div class="flex-equal flex jc-center border-left border-right">
+                    <span>活力分</span>
+                </div>
+                <div class="flex-equal flex jc-center">
+                    <span>折扣</span>
+                </div>
+            </div>
+            <div class="flex margin-top-10">
+                <div class="flex-equal flex jc-center">
+                    <span>340</span>
+                </div>
+                <div class="flex-equal flex jc-center">
+                    <span>246.3371</span>
+                </div>
+                <div class="flex-equal flex jc-center">
+                    <span>0.00</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="padding-10">
+        <div class="bg-white radius-5">
+            <div class="eui-list">
+                <div class="eui-item">
+                    <div class="eui-item-left">我的订单</div>
+                    <div class="eui-item-right">
+                        <span>查看全部订单</span>
+                        <span class="iconfont icon-right"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex padding-tb-10">
+                <div class="flex-equal flex flex-column jc-center ai-center" :key="state.name" v-for="state in states"
+                     @click="stateClick(state)">
+                    <div class="fs-30 iconfont" :class="[state.icon]"></div>
+                    <div class="fs-14">{{state.label}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="padding-10">
+        <div style="width: 100%;height: 100px;" class="bg-orange">
+
+        </div>
+    </div>
+    <div class="padding-tb-5 padding-lr-10">我的服务</div>
+    <div class="padding-10">
+        <div class="bg-white padding-5 radius-5">
+            <div class="flex user-grids">
+                <div class="user-grid">
+                    <div class="eui-size-40 round border"></div>
+                    <div>每日必看</div>
+                </div>
+                <div class="user-grid">
+                    <div class="eui-size-40 round border"></div>
+                    <div>每日必看</div>
+                </div>
+                <div class="user-grid">
+                    <div class="eui-size-40 round border"></div>
+                    <div>每日必看</div>
+                </div>
+                <div class="user-grid">
+                    <div class="eui-size-40 round border"></div>
+                    <div>每日必看</div>
+                </div>
+            </div>
+            <div class="flex user-grids">
+                <div class="user-grid">
+                    <div class="eui-size-40 round border"></div>
+                    <div>每日必看</div>
+                </div>
+                <div class="user-grid">
+                    <div class="eui-size-40 round border"></div>
+                    <div>每日必看</div>
+                </div>
+                <div class="user-grid">
+                    <div class="eui-size-40 round border"></div>
+                    <div>每日必看</div>
+                </div>
+                <div class="user-grid">
+                    <div class="eui-size-40 round border"></div>
+                    <div>每日必看</div>
+                </div>
+            </div>
+            <div class="flex user-grids">
+                <div class="user-grid">
+                    <div class="eui-size-40 round border"></div>
+                    <div>每日必看</div>
+                </div>
+                <div class="user-grid">
+                    <div class="eui-size-40 round border"></div>
+                    <div>每日必看</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+  new Vue({
+    el: '#app',
+    mixins: [winpage],
+    data: function () {
+      return {
+        states: [
+          {name: 'DFK', label: '待付款', icon: 'icon-daifukuan'},
+          {name: 'DFH', label: '待发货', icon: 'icon-daifahuo'},
+          {name: 'DSH', label: '待收货', icon: 'icon-daishouhuo'},
+          {name: 'DPJ', label: '待评价', icon: 'icon-daipingjia'},
+          {name: 'SHH', label: '售后', icon: 'icon-shouhou'},
+        ]
+      };
+    },
+    methods: {
+      stateClick(state) {
+        console.info(state)
+      }
+    }
+  });
+</script>
+
+</body>
+
+</html>

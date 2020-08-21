@@ -867,6 +867,10 @@ img {
     color: #AFBAC4 !important;
 }
 
+.radius-3 {
+    border-radius: 0.03rem;
+}
+
 .radius-5 {
     border-radius: 0.05rem;
 }
