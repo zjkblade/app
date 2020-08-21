@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+    <link href="../../css/common.css" rel="stylesheet">
+
+    <style>
+        #app {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background: var(--color-gray1);
+            overflow: hidden;
+        }
+    </style>
+    <script src="../../script/lib/app.responsive.js"></script>
+    <script src="../../script/lib/vue.min.js"></script>
+    <script src="../../script/lib/api.js"></script>
+    <script src="../../script/lib/jquery-3.4.1.min.js"></script>
+    <script src="../../script/common.js"></script>
+    <script src="../../script/service.js"></script>
+    <script src="../../script/mixins.js"></script>
+    <script src="../../script/components/component-header.js"></script>
+</head>
+<body>
+<div id="app">
+    <e-header id="header" :close="() => close()" title="安全设置"></e-header>
+    <div class="eui-list bg-white margin-top-10">
+        <div class="eui-item" @click="util.app.openWindow('win-modify-mobile', './modify_mobile_win.html')">
+            <div class="eui-item-left">修改绑定手机号</div>
+            <div class="eui-item-right">
+                <span class="iconfont icon-right"></span>
+            </div>
+        </div>
+        <div class="eui-item" @click="util.app.openWindow('win-modify-password', './modify_password_win.html')">
+            <div class="eui-item-left">修改/找回密码</div>
+            <div class="eui-item-right">
+                <span class="iconfont icon-right"></span>
+            </div>
+        </div>
+        <div class="eui-item" @click="util.app.openWindow('win-modify-payment-password', './modify_payment_password_win.html')">
+            <div class="eui-item-left">设置/修改支付密码</div>
+            <div class="eui-item-right">
+                <span class="iconfont icon-right"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+  new Vue({
+    el: '#app',
+    mixins: [winpage],
+    data: function () {
+      return {};
+    },
+    methods: {}
+  });
+</script>
+
+</body>
+
+</html>

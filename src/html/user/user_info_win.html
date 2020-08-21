@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+    <link href="../../css/common.css" rel="stylesheet">
+
+    <style>
+        #app {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background: var(--color-gray1);
+            overflow: hidden;
+        }
+    </style>
+    <script src="../../script/lib/app.responsive.js"></script>
+    <script src="../../script/lib/vue.min.js"></script>
+    <script src="../../script/lib/api.js"></script>
+    <script src="../../script/lib/jquery-3.4.1.min.js"></script>
+    <script src="../../script/common.js"></script>
+    <script src="../../script/service.js"></script>
+    <script src="../../script/mixins.js"></script>
+    <script src="../../script/components/component-header.js"></script>
+    <style>
+        .eui-item-left {
+            width: 100px;
+            justify-content: flex-start !important;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <e-header id="header" :close="() => close()" title="安全设置"></e-header>
+    <div class="eui-list bg-white margin-top-10">
+        <div class="eui-item">
+            <div class="eui-item-left">用户ID</div>
+            <div class="eui-item-body">
+                <input type="text" class="eui-input" value="DNJKJL"/>
+            </div>
+        </div>
+        <div class="eui-item">
+            <div class="eui-item-left">手机号</div>
+            <div class="eui-item-body">
+                <input type="text" class="eui-input" value="1231231234"/>
+            </div>
+        </div>
+        <div class="eui-item">
+            <div class="eui-item-left">昵称</div>
+            <div class="eui-item-body">
+                <input type="text" class="eui-input" value="jk"/>
+            </div>
+        </div>
+    </div>
+    <div class="margin-top-50 padding-lr-20">
+        <div class="eui-btn eui-btn-block radius-5 bg-positive color-white">
+            <span>修改</span>
+        </div>
+    </div>
+</div>
+<script>
+  new Vue({
+    el: '#app',
+    mixins: [winpage],
+    data: function () {
+      return {};
+    },
+    methods: {}
+  });
+</script>
+
+</body>
+
+</html>

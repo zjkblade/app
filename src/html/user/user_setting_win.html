@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+    <link href="../../css/common.css" rel="stylesheet">
+
+    <style>
+        #app {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background: var(--color-gray1);
+            overflow: hidden;
+        }
+
+        .eui-item {
+            height: 0.5rem;
+        }
+    </style>
+    <script src="../../script/lib/app.responsive.js"></script>
+    <script src="../../script/lib/vue.min.js"></script>
+    <script src="../../script/lib/api.js"></script>
+    <script src="../../script/lib/jquery-3.4.1.min.js"></script>
+    <script src="../../script/common.js"></script>
+    <script src="../../script/service.js"></script>
+    <script src="../../script/mixins.js"></script>
+    <script src="../../script/components/component-header.js"></script>
+</head>
+<body>
+<div id="app">
+    <e-header id="header" :close="() => close()" title="个人设置"></e-header>
+    <div class="eui-list bg-white margin-top-10">
+        <div class="eui-item" @click="util.app.openWindow('win-user-info', './user_info_win.html')">
+            <div class="eui-item-left">个人信息</div>
+            <div class="eui-item-right">
+                <span class="iconfont icon-user fs-25"></span>
+                <span class="iconfont icon-right margin-left-5"></span>
+            </div>
+        </div>
+        <div class="eui-item">
+            <div class="eui-item-left">银行卡</div>
+            <div class="eui-item-right">
+                <span class="iconfont icon-user fs-25"></span>
+                <span class="iconfont icon-right margin-left-5"></span>
+            </div>
+        </div>
+        <div class="eui-item">
+            <div class="eui-item-left">实名认证</div>
+            <div class="eui-item-right">
+                <span class="iconfont icon-user fs-25"></span>
+                <span class="iconfont icon-right margin-left-5"></span>
+            </div>
+        </div>
+        <div class="eui-item" @click="util.app.openWindow('win-safe-setting', './safe_setting_win.html')">
+            <div class="eui-item-left">账号安全</div>
+            <div class="eui-item-right">
+                <span class="iconfont icon-user fs-25"></span>
+                <span class="iconfont icon-right margin-left-5"></span>
+            </div>
+        </div>
+        <div class="eui-item">
+            <div class="eui-item-left">联系客服</div>
+            <div class="eui-item-right">
+                <span class="iconfont icon-user fs-25"></span>
+                <span class="iconfont icon-right margin-left-5"></span>
+            </div>
+        </div>
+        <div class="eui-item">
+            <div class="eui-item-left">关于我们</div>
+            <div class="eui-item-right">
+                <span class="iconfont icon-user fs-25"></span>
+                <span class="iconfont icon-right margin-left-5"></span>
+            </div>
+        </div>
+        <div class="eui-item">
+            <div class="eui-item-left">隐私</div>
+            <div class="eui-item-right">
+                <span class="iconfont icon-user fs-25"></span>
+                <span class="iconfont icon-right margin-left-5"></span>
+            </div>
+        </div>
+        <div class="eui-item">
+            <div class="eui-item-left">当前版本</div>
+            <div class="eui-item-right">
+                <span class="iconfont icon-user">2.0.5</span>
+                <span class="iconfont icon-right margin-left-5"></span>
+            </div>
+        </div>
+    </div>
+    <div class="margin-top-20 padding-lr-10">
+        <div class="eui-btn eui-btn-block radius-5 bg-positive color-white">
+            <span>退出登录</span>
+        </div>
+    </div>
+</div>
+<script>
+  new Vue({
+    el: '#app',
+    mixins: [winpage],
+    data: function () {
+      return {};
+    },
+    methods: {}
+  });
+</script>
+
+</body>
+
+</html>

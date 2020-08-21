@@ -10,6 +10,7 @@
 :root {
     --color-positive: #E10601;
     --color-passive: #3B8AFF;
+    --color-green: #008000;
     --color-white: #FFFFFF;
     --color-black: #444444;
     --color-gray0: #F6F6F6;
@@ -779,6 +780,9 @@ img {
     background: var(--color-passive) !important;
 }
 
+.bg-green {
+    background: var(--color-green) !important;
+}
 .box-shadow-passive {
     box-shadow: 0 2px 3px 0 rgba(59, 138, 255, 0.57);
 }
@@ -805,6 +809,10 @@ img {
 
 .color-white {
     color: var(--color-white) !important;
+}
+
+.color-green {
+    color: var(--color-green) !important;
 }
 
 .bg-white {
