@@ -6,7 +6,6 @@ Vue.component('e-loading', {
         </div>
         <div v-cloak="" v-if="!hasMore" class="eui-loading flex-column flex-center">
             <div v-if="hasData" class="eui-loading-text">没有更多数据了</div>
-            <div v-if="!hasData" class="padding-top-85"><div class="eui-nodata"></div></div>
             <div v-if="!hasData" class="eui-loading-text">没有查询到数据</div>
         </div>
     </div>`,

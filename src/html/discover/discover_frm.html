@@ -24,6 +24,7 @@
     <script src="../../script/mixins.js"></script>
     <script src="../../script/filters.js"></script>
     <script src="../../script/components/component-header.js"></script>
+    <script src="../../script/components/component-loading.js"></script>
 </head>
 <body>
 <div id="app">
@@ -40,7 +41,7 @@
         <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
     <div class="eui-list">
-        <div class="eui-item bg-white padding-tb-10 padding-right-10" v-for="item of 0,100">
+        <div class="eui-item bg-white padding-tb-10 padding-right-10" v-for="item of 0,10">
             <div class="eui-item-left">
                 <div style="width: 100px;height: 80px;" class="border"></div>
             </div>
@@ -55,6 +56,7 @@
             </div>
         </div>
     </div>
+    <e-loading :has-data="true" :has-more="true"></e-loading>
 </div>
 <script>
   Vue.use(window.VueAwesomeSwiper);
@@ -72,8 +74,7 @@
         },
       };
     },
-    methods: {
-    }
+    methods: {}
   });
 </script>
 
