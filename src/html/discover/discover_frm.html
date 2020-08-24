@@ -24,13 +24,9 @@
     <script src="../../script/mixins.js"></script>
     <script src="../../script/filters.js"></script>
     <script src="../../script/components/component-header.js"></script>
-    <script src="../../script/components/component-tabs.js"></script>
 </head>
 <body>
-<div id="app" class="padding-top-50">
-    <div class="fixed top eui-block bg-white">
-        <e-top-tabs :tabs="tabs" :tab-selected="selectedTab" @event-tab-click="tabClick"></e-top-tabs>
-    </div>
+<div id="app">
     <swiper :options="swiperOptions" ref="swiper">
         <swiper-slide>
             <div style="width: 100%;height: 150px;" class="bg-positive"></div>
@@ -74,23 +70,9 @@
             el: '.swiper-pagination'
           },
         },
-        selectedTab: 'GG',
-        tabs: [
-          {label: '公告', name: 'GG'},
-          {label: '教程', name: 'JC'},
-          {label: '商业', name: 'SY'},
-          {label: '生活', name: 'SH'},
-          {label: '社区', name: 'SQ'},
-        ]
       };
     },
     methods: {
-      tabClick: function (tab) {
-        var $this = this;
-        $this.selectedTab = tab;
-        // TODO
-        util.app.closeWindow($this.name);
-      },
     }
   });
 </script>
