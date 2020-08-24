@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+    <link href="../../css/common.css" rel="stylesheet">
+
+    <style>
+        #app {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background: var(--color-gray1);
+            overflow: hidden;
+        }
+
+        .eui-header {
+            background: transparent !important;
+            color: #FFFFFF !important;
+        }
+
+        .eui-header-body {
+            color: #FFFFFF !important;
+        }
+
+    </style>
+    <script src="../../script/lib/app.responsive.js"></script>
+    <script src="../../script/lib/vue.min.js"></script>
+    <script src="../../script/lib/api.js"></script>
+    <script src="../../script/lib/jquery-3.4.1.min.js"></script>
+    <script src="../../script/common.js"></script>
+    <script src="../../script/service.js"></script>
+    <script src="../../script/mixins.js"></script>
+    <script src="../../script/components/component-header.js"></script>
+</head>
+<body>
+<div id="app">
+    <e-header id="header" class="bg-red" :close="() => close()" title="活力值"></e-header>
+    <div class="bg-red padding-tb-10 padding-bottom-50 bg-positive relative">
+        <div class="padding-lr-10">
+            <div class="flex jc-between fs-12 color-white">
+                <div>目前已累计活力值</div>
+                <div @click="showModal">活力值规则</div>
+            </div>
+            <div class="padding-top-10">
+                <span class="color-white fs-30">5000</span>
+            </div>
+        </div>
+        <div class="absolute padding-lr-10" style="width:100%;height:70px;bottom: -30px;">
+            <div class="flex bg-white ai-center jc-around radius-5" style="height: 100%;">
+                <div class="flex flex-column ai-center">
+                    <span class="fs-12">今日个人</span>
+                    <span class="margin-top-5 fs-12">10</span>
+                </div>
+                <div class="flex flex-column ai-center">
+                    <span class="fs-12">今日团队</span>
+                    <span class="margin-top-5 fs-12">10</span>
+                </div>
+                <div class="flex flex-column ai-center">
+                    <span class="fs-12">今日节点</span>
+                    <span class="margin-top-5 fs-12">10</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="padding-lr-10" style="margin-top: 40px;">
+        <div class="padding-tb-10 bg-white">
+            <div class="flex  ai-center jc-around radius-5">
+                <div class="flex flex-column ai-center"
+                     @click="util.app.openWindow('win-vitality-value-detail', './vitality_value_detail_win.html')">
+                    <div class="eui-size-30 bg-gray2 radius-5"></div>
+                    <span class="margin-top-5 fs-12 margin-top-10">活力值明细</span>
+                </div>
+                <div class="flex flex-column ai-center">
+                    <div class="eui-size-30 bg-gray2 radius-5"></div>
+                    <span class="margin-top-5 fs-12 margin-top-10">商城收益</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="eui-modal padding-lr-20" :class="{visible:visible}">
+        <div class="eui-card">
+            <div class="eui-card-header">
+                <div class="eui-block flex jc-center">
+                    <span>活力值规则</span>
+                </div>
+            </div>
+            <div class="eui-card-body" style="max-height: 400px;overflow-y: auto">
+                <div class="fs-14">请认真预读并理解以下内容</div>
+                <div class="fs-14">1.活力值的定义</div>
+                <div class="fs-14">1.1活力值就是用户在活力链平台（以下简称平台）里所做出的贡献，由平台按平台相关规则计算后给到用户的奖励。用户在平台当中参与的各种互动、任务等均可以获得活力值。如：注册、签到、阅读、实名认证、推荐用户、写文章、购买产品、绑定城市节点等都可以获得活力值奖励</div>
+                <div class="fs-14">2.注册、认证可获得活力值</div>
+                <div class="fs-14">2.1注册后本人即可获得3888活力值奖励</div>
+                <div class="fs-14">2.2本人实名认证可再获得1888活力值奖励。</div>
+                <div class="fs-14">3.签到可获得活力值</div>
+                <div class="fs-14">3.1用户每日登录平台进行签到，均可以获得活力值。连续签到天数越多，奖励的活力值越多，以七天未一个循环</div>
+                <div class="fs-14">4.推广注册可获得活力值</div>
+            </div>
+            <div class="eui-card-footer">
+                <div class="eui-block flex jc-center">
+                    <div class="eui-size-30 radius-40 flex ai-center jc-center border border-black">
+                        <span class="iconfont icon-close" @click="visible = !visible"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+  new Vue({
+    el: '#app',
+    mixins: [winpage],
+    data: function () {
+      return {
+        visible: false,
+      };
+    },
+    methods: {
+      showModal: function () {
+        var $this = this;
+        $this.visible = true
+      },
+    }
+  });
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+    <link href="../../css/common.css" rel="stylesheet">
+
+    <style>
+        #app {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background: var(--color-gray1);
+            overflow: hidden;
+        }
+
+        .eui-header {
+            background: transparent !important;
+            color: #FFFFFF !important;
+        }
+
+        .eui-header-body {
+            color: #FFFFFF !important;
+        }
+
+    </style>
+    <script src="../../script/lib/app.responsive.js"></script>
+    <script src="../../script/lib/vue.min.js"></script>
+    <script src="../../script/lib/api.js"></script>
+    <script src="../../script/lib/jquery-3.4.1.min.js"></script>
+    <script src="../../script/common.js"></script>
+    <script src="../../script/service.js"></script>
+    <script src="../../script/mixins.js"></script>
+    <script src="../../script/components/component-header.js"></script>
+    <script src="../../script/components/component-tabs.js"></script>
+</head>
+<body>
+<div id="app">
+    <e-header id="header" class="bg-red" :close="() => close()" title="馈赠亲友"></e-header>
+
+    <div class="eui-list bg-white margin-top-10 padding-tb-5">
+        <div class="eui-item">
+            <div class="eui-item-left">
+                温馨提示
+            </div>
+            <div class="eui-item-body">
+                <div><span class="fs-12 color-red">1:本功能的目的仅限亲友间馈赠，请勿用于私下交易</span></div>
+                <div><span class="fs-12 color-red">2:馈赠成功后，如无误，请至馈赠记录中点选释放</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="eui-list bg-white margin-top-10">
+        <div class="eui-item">
+            <div class="eui-item-left">
+                <span>可用活力分</span>
+                <span class="color-red margin-left-10">0.0000</span>
+            </div>
+        </div>
+        <div class="eui-item">
+            <div class="eui-item-left">
+                <span>对方ID号</span>
+            </div>
+            <div class="eui-item-body">
+                <input type="text" class="eui-input" placeholder="请输入对方ID号">
+            </div>
+        </div>
+        <div class="eui-item">
+            <div class="eui-item-left">
+                <span>对方姓名</span>
+            </div>
+            <div class="eui-item-body">
+                <input type="text" class="eui-input" placeholder="请输入对方姓名">
+            </div>
+        </div>
+
+        <div class="eui-item">
+            <div class="eui-item-left">
+                <span>馈赠数量</span>
+            </div>
+            <div class="eui-item-body">
+                <input type="text" class="eui-input" placeholder="请输入赠送的熟练的20的倍数">
+            </div>
+        </div>
+
+        <div class="eui-item">
+            <div class="eui-item-left">
+                <span>手续费用</span>
+            </div>
+            <div class="eui-item-body">
+                <input type="text" class="eui-input" value="0">
+            </div>
+        </div>
+
+        <div class="eui-item">
+            <div class="eui-item-left">
+                <span>对方手机号码</span>
+            </div>
+            <div class="eui-item-body">
+                <input type="text" class="eui-input" placeholder="输入对方的ID和姓名自动识别">
+            </div>
+        </div>
+        <div class="eui-item">
+            <div class="eui-item-left">验证码</div>
+            <div class="eui-item-body">
+                <input type="text" class="eui-input" value="DNJKJL"/>
+            </div>
+            <div class="eui-item-right">
+                <span class="color-white bg-green padding-tb-5 padding-lr-10 radius-5">获取验证码</span>
+            </div>
+        </div>
+        <div class="eui-item">
+            <div class="eui-item-left">
+                <span>支付密码</span>
+            </div>
+            <div class="eui-item-body">
+                <input type="text" class="eui-input" placeholder="请填写支付密码">
+            </div>
+            <div class="eui-item-right"
+                 @click="util.app.openWindow('win-modify-payment-password', './modify_payment_password_win.html')">
+                <span class="color-orange fs-12">新增/修改</span>
+            </div>
+        </div>
+    </div>
+    <div class="absolute padding-lr-10 eui-block" style="bottom: 10px;">
+        <div class="eui-btn-block eui-btn bg-red no-border radius-5">
+            <span class="color-white">确认提交</span>
+        </div>
+    </div>
+</div>
+<script>
+  new Vue({
+    el: '#app',
+    mixins: [winpage],
+    data: function () {
+      return {
+        tabSelected: 'home',
+        tabs: [
+          {label: '馈赠详情', name: 'home',},
+          {label: '收到的馈赠', name: 'discover',},
+        ],
+      };
+    },
+    methods: {
+      clickTab: function (tab) {
+        this.tabSelected = tab;
+      }
+    }
+  });
+</script>
+
+</body>
+
+</html>

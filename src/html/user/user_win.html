@@ -41,14 +41,15 @@
 <div id="app">
     <div id="header" class="bg-positive">
         <div class="flex jc-end ai-center color-white padding-right-10">
-            <div class="flex ai-center">
+            <div class="flex ai-center" @click="util.app.openWindow('win-user-sign', './user_sign_win.html')">
                 <span class="fs-20 iconfont icon-qiandao"></span>
                 <span class="fs-12">已经签</span>
             </div>
             <div class="flex ai-center margin-left-10">
                 <span class="fs-20 iconfont icon-kefu"></span>
             </div>
-            <div class="flex ai-center margin-left-10" @click="util.app.openWindow('win-user-setting', './user_setting_win.html')">
+            <div class="flex ai-center margin-left-10"
+                 @click="util.app.openWindow('win-user-setting', './user_setting_win.html')">
                 <span class="fs-20 iconfont icon-shezhi"></span>
             </div>
         </div>
@@ -60,8 +61,8 @@
                 <div class="eui-item-body color-white">
                     <div class="margin-bottom-5">名字</div>
                     <div class="flex fs-12">
-                        <div class="bg-orange radius-3 padding-2 padding-lr-10">注册天数 11</div>
-                        <div class="bg-orange radius-3 padding-2 padding-lr-10 margin-left-5">
+                        <div class="bg-orange radius-5 padding-2 padding-lr-10">注册天数 11</div>
+                        <div class="bg-orange radius-5 padding-2 padding-lr-10 margin-left-5">
                             <span>ID JDkD1Ng1</span>
                             <span class="margin-left-5 iconfont icon-copy"></span>
                         </div>
@@ -70,22 +71,26 @@
             </div>
         </div>
         <div class="padding-tb-10 color-white">
-            <div class="flex">
-                <div class="flex-equal flex jc-center">
+            <div class="flex fs-13">
+                <div class="flex-equal flex jc-center"
+                     @click="util.app.openWindow('win-vitality-value', './vitality_value_win.html')">
                     <span>今日活力值</span>
                 </div>
-                <div class="flex-equal flex jc-center border-left border-right">
+                <div class="flex-equal flex jc-center border-left border-right"
+                     @click="util.app.openWindow('win-vitality-score', './vitality_score_win.html')">
                     <span>活力分</span>
                 </div>
                 <div class="flex-equal flex jc-center">
                     <span>折扣</span>
                 </div>
             </div>
-            <div class="flex margin-top-10">
-                <div class="flex-equal flex jc-center">
+            <div class="flex margin-top-5">
+                <div class="flex-equal flex jc-center"
+                     @click="util.app.openWindow('win-vitality-value', './vitality_value_win.html')">
                     <span>340</span>
                 </div>
-                <div class="flex-equal flex jc-center">
+                <div class="flex-equal flex jc-center"
+                     @click="util.app.openWindow('win-vitality-score', './vitality_score_win.html')">
                     <span>246.3371</span>
                 </div>
                 <div class="flex-equal flex jc-center">
@@ -127,11 +132,13 @@
                     <div class="eui-size-40 round border"></div>
                     <div>每日必看</div>
                 </div>
-                <div class="user-grid">
+                <div class="user-grid"
+                     @click="util.app.openWindow('win-team', './team_win.html')">
                     <div class="eui-size-40 round border"></div>
                     <div>我的团队</div>
                 </div>
-                <div class="user-grid">
+                <div class="user-grid"
+                     @click="util.app.openWindow('win-city', './city_win.html')">
                     <div class="eui-size-40 round border"></div>
                     <div>城市节点</div>
                 </div>

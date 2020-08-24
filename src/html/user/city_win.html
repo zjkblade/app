@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+    <link href="../../css/common.css" rel="stylesheet">
+
+    <style>
+        #app {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background: var(--color-gray1);
+            overflow: hidden;
+        }
+
+        .eui-header {
+            background: transparent !important;
+            color: #FFFFFF !important;
+        }
+
+        .eui-header-body {
+            color: #FFFFFF !important;
+        }
+
+        .user-grids:first-child {
+            border-bottom: 1px solid #E2E2E2;
+        }
+
+        .user-grids .user-grid {
+            width: 33.3333%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 0;
+            font-size: 12px;
+        }
+
+        .user-grids .user-grid > div:last-child {
+            margin-top: 10px !important;
+        }
+
+        .user-grids .user-grid:not(:first-child) {
+            border-left: 1px solid #E2E2E2;
+        }
+
+        .user-grids .user-grid > div:last-child {
+            margin-top: 5px;
+            font-size: 13px;
+        }
+
+    </style>
+    <script src="../../script/lib/app.responsive.js"></script>
+    <script src="../../script/lib/vue.min.js"></script>
+    <script src="../../script/lib/api.js"></script>
+    <script src="../../script/lib/jquery-3.4.1.min.js"></script>
+    <script src="../../script/common.js"></script>
+    <script src="../../script/service.js"></script>
+    <script src="../../script/mixins.js"></script>
+    <script src="../../script/components/component-header.js"></script>
+</head>
+<body>
+<div id="app">
+    <e-header id="header" class="bg-red" :close="() => close()" title="我的团队"></e-header>
+    <div class="bg-red padding-tb-10 padding-bottom-30 bg-positive relative">
+        <div class="absolute padding-lr-10" style="width:100%;height:50px;bottom: -20px;">
+            <div class="bg-white padding-10 radius-5">
+                <div class="flex ai-center jc-center fs-14" style="height: 100%;">
+                    <span>现在已有</span>
+                    <span class="color-red">5000</span>
+                    <span>会员开通了节点</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="padding-10 margin-top-10">
+        <div class="bg-white radius-5">
+            <div class="flex user-grids">
+                <div class="user-grid" @click="util.app.openWindow('win-city-country', './city_country_win.html')">
+                    <div class="eui-size-40 round border"></div>
+                    <div>全国城市节点</div>
+                </div>
+                <div class="user-grid" @click="util.app.openWindow('win-city-payment', './city_payment_win.html')">
+                    <div class="eui-size-40 round border"></div>
+                    <div>我的节点</div>
+                </div>
+                <div class="user-grid">
+                    <div class="eui-size-40 round border"></div>
+                    <div>我服务的会员</div>
+                </div>
+            </div>
+            <div class="flex user-grids">
+                <div class="user-grid" @click="util.app.openWindow('win-city-binded', './city_binded_win.html')">
+                    <div class="eui-size-40 round border"></div>
+                    <div>已绑定的城市节点</div>
+                </div>
+                <div class="user-grid">
+                    <div class="eui-size-40 round border"></div>
+                    <div>扫码绑定</div>
+                </div>
+                <div class="user-grid">
+                    <div class="eui-size-40 round border"></div>
+                    <div>官方微信号</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+  new Vue({
+    el: '#app',
+    mixins: [winpage],
+    data: function () {
+      return {
+        visible: false,
+      };
+    },
+    methods: {}
+  });
+</script>
+
+</body>
+
+</html>

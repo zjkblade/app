@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+    <link href="../../css/common.css" rel="stylesheet">
+
+    <style>
+        #app {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background: var(--color-gray1);
+            overflow: hidden;
+        }
+
+        .eui-header {
+            background: transparent !important;
+            color: #FFFFFF !important;
+        }
+
+        .eui-header-body {
+            color: #FFFFFF !important;
+        }
+
+    </style>
+    <script src="../../script/lib/app.responsive.js"></script>
+    <script src="../../script/lib/vue.min.js"></script>
+    <script src="../../script/lib/api.js"></script>
+    <script src="../../script/lib/jquery-3.4.1.min.js"></script>
+    <script src="../../script/common.js"></script>
+    <script src="../../script/service.js"></script>
+    <script src="../../script/mixins.js"></script>
+    <script src="../../script/components/component-header.js"></script>
+</head>
+<body>
+<div id="app">
+    <e-header id="header" class="bg-red" :close="() => close()" title="活力分"></e-header>
+    <div class="bg-red padding-tb-10 padding-bottom-50 bg-positive relative">
+        <div class="padding-lr-10">
+            <div class="flex jc-between fs-12 color-white">
+                <div>原始活力分</div>
+            </div>
+            <div class="padding-top-10">
+                <span class="color-white fs-30">275.1592</span>
+            </div>
+        </div>
+        <div class="absolute padding-lr-10" style="width:100%;height:70px;bottom: -30px;">
+            <div class="flex bg-white ai-center jc-around radius-5" style="height: 100%;">
+                <div class="flex flex-equal flex-column ai-center">
+                    <div class="fs-12">今日均价</div>
+                    <div class="eui-block flex jc-center padding-tb-10 fs-12 color-red">0.67</div>
+                </div>
+                <div class="flex flex-equal flex-column ai-center">
+                    <div class="fs-12">活力分总价值</div>
+                    <div class="eui-block flex jc-center padding-tb-10 fs-12 color-red border-left">184.36</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="padding-lr-10" style="margin-top: 40px;">
+        <div class="bg-white radius-5">
+            <div class="padding-10">
+                <span>功能应用</span>
+            </div>
+            <div class="flex ai-center jc-around padding-tb-10">
+                <div class="flex flex-equal flex-column ai-center"
+                     @click="util.app.openWindow('win-vitality-score-locked', './vitality_score_locked_win.html')">
+                    <div class="eui-size-30 bg-gray2 radius-5"></div>
+                    <span class="margin-top-5 fs-12 margin-top-10">锁仓活力分</span>
+                </div>
+                <div class="flex flex-equal flex-column ai-center"
+                     @click="util.app.openWindow('win-vitality-score-available', './vitality_score_available_win.html')">
+                    <div class="eui-size-30 bg-gray2 radius-5"></div>
+                    <span class="margin-top-5 fs-12 margin-top-10">可用活力分</span>
+                </div>
+                <div class="flex flex-equal flex-column ai-center">
+                    <div class="eui-size-30 bg-gray2 radius-5"></div>
+                    <span class="margin-top-5 fs-12 margin-top-10">提取汇总</span>
+                </div>
+            </div>
+            <div class="flex ai-center jc-around padding-tb-10"
+                 @click="util.app.openWindow('win-vitality-score-gift', './vitality_score_gift_win.html')">
+                <div class="flex flex-equal flex-column ai-center">
+                    <div class="eui-size-30 bg-gray2 radius-5"></div>
+                    <span class="margin-top-5 fs-12 margin-top-10">馈赠活力分</span>
+                </div>
+                <div class="flex flex-equal flex-column ai-center">
+                    <div class="eui-size-30 bg-gray2 radius-5"></div>
+                    <span class="margin-top-5 fs-12 margin-top-10">折扣兑换</span>
+                </div>
+                <div class="flex flex-equal flex-column ai-center">
+                    <div class="eui-size-30 bg-gray2 radius-5"></div>
+                    <span class="margin-top-5 fs-12 margin-top-10">账户提现</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+  new Vue({
+    el: '#app',
+    mixins: [winpage],
+    data: function () {
+      return {};
+    },
+    methods: {}
+  });
+</script>
+
+</body>
+
+</html>

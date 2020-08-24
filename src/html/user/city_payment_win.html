@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+    <link href="../../css/common.css" rel="stylesheet">
+
+    <style>
+        #app {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background: var(--color-gray1);
+            overflow: hidden;
+        }
+    </style>
+    <script src="../../script/lib/app.responsive.js"></script>
+    <script src="../../script/lib/vue.min.js"></script>
+    <script src="../../script/lib/api.js"></script>
+    <script src="../../script/lib/jquery-3.4.1.min.js"></script>
+    <script src="../../script/common.js"></script>
+    <script src="../../script/service.js"></script>
+    <script src="../../script/mixins.js"></script>
+    <script src="../../script/components/component-header.js"></script>
+</head>
+<body>
+<div id="app">
+    <e-header id="header" :close="() => close()" title="城市节点支付">
+        <div slot="right">
+            <span class="fs-12" @click="util.app.openWindow('win-city-payment-records', './city_payment_records_win.html')">支付记录</span>
+        </div>
+    </e-header>
+    <div class="eui-list bg-white margin-top-10">
+        <div class="eui-item">
+            <div class="eui-item-left">选择开通的年限：</div>
+            <div class="eui-item-body">
+                <input type="text" class="eui-input" value="DNJKJL"/>
+            </div>
+        </div>
+        <div class="eui-item">
+            <div class="eui-item-left">
+                <span>奖励活力值：</span>
+                <span class="color-red">1100000.00</span>
+            </div>
+        </div>
+        <div class="eui-item">
+            <div class="eui-item-left">
+                <span>需支付金额：</span>
+                <span class="color-red" style="font-weight: bold">980.00</span>
+            </div>
+        </div>
+        <div class="eui-item">
+            <div class="eui-item-left">
+                <span>开通年限奖励：</span>
+            </div>
+            <div class="eui-item-body">
+                <div class="color-red fs-12">一次性开通10年送1年</div>
+                <div class="color-red fs-12">一次性开通20年送5年</div>
+            </div>
+        </div>
+    </div>
+    <div class="eui-list bg-white margin-top-10">
+        <div class="eui-item">
+            <div class="eui-item-left">支付方式：</div>
+        </div>
+        <div class="eui-item">
+            <div class="eui-item-left">
+                <span class="iconfont icon-zhifubao color-passive fs-20"></span>
+            </div>
+            <div class="eui-item-body">
+                <span>支付宝</span>
+            </div>
+            <div class="eui-item-right">
+                <div class="eui-check-box active">
+                    <div class="eui-radio">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="margin-top-10 padding flex ai-center jc-start">
+        <div class="eui-check-box active">
+            <div class="eui-radio">
+                <div></div>
+            </div>
+        </div>
+        <div class="margin-left-10">
+            <span class="color-121415 fs-14">我已经阅读并同意</span>
+            <span class="color-red fs-12">支付协议</span>
+        </div>
+    </div>
+    <div class="margin-top-10 padding eui-block" style="bottom: 10px;">
+        <div class="eui-btn-block eui-btn bg-red no-border radius-5">
+            <span class="color-white">确认支付</span>
+        </div>
+    </div>
+</div>
+<script>
+  new Vue({
+    el: '#app',
+    mixins: [winpage],
+    data: function () {
+      return {
+        visible: false,
+      };
+    },
+    methods: {}
+  });
+</script>
+
+</body>
+
+</html>

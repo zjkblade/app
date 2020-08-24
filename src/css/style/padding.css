@@ -199,6 +199,14 @@
     padding-bottom: 0.30rem !important;
 }
 
+.padding-bottom-50 {
+    padding-bottom: 0.50rem !important;
+}
+
+.padding-bottom-80 {
+    padding-bottom: 0.80rem !important;
+}
+
 .padding-top-10 {
     padding-top: 0.10rem !important;
 }

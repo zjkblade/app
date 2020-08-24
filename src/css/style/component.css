@@ -375,7 +375,7 @@
 }
 
 .eui-tabs.eui-tabs-top .eui-tab.active {
-    font-size: 0.18rem;
+    /*font-size: 0.18rem;*/
     /*transition: font-size var(--transition);*/
 }
 
@@ -783,8 +783,13 @@ img {
 .bg-green {
     background: var(--color-green) !important;
 }
+
 .box-shadow-passive {
     box-shadow: 0 2px 3px 0 rgba(59, 138, 255, 0.57);
+}
+
+.box-shadow-gray {
+    box-shadow: 0 0 3px 0 rgba(68, 68, 68, 0.3);
 }
 
 .color-positive {
@@ -793,6 +798,14 @@ img {
 
 .bg-positive {
     background: var(--color-positive) !important;
+}
+
+.color-red {
+    color: #FD340A !important;
+}
+
+.bg-red {
+    background: #FD340A !important;
 }
 
 .color-orange {

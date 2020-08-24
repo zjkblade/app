@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+    <link href="../../css/common.css" rel="stylesheet">
+
+    <style>
+        #app {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background: var(--color-gray1);
+            overflow: hidden;
+        }
+
+        .eui-header {
+            background: transparent !important;
+            color: #FFFFFF !important;
+        }
+
+        .eui-header-body {
+            color: #FFFFFF !important;
+        }
+
+    </style>
+    <script src="../../script/lib/app.responsive.js"></script>
+    <script src="../../script/lib/vue.min.js"></script>
+    <script src="../../script/lib/api.js"></script>
+    <script src="../../script/lib/jquery-3.4.1.min.js"></script>
+    <script src="../../script/common.js"></script>
+    <script src="../../script/service.js"></script>
+    <script src="../../script/mixins.js"></script>
+    <script src="../../script/components/component-header.js"></script>
+</head>
+<body>
+<div id="app">
+    <e-header id="header" class="bg-red" :close="() => close()" title="我的团队"></e-header>
+    <div class="bg-red padding-tb-10 padding-bottom-80 bg-positive relative">
+        <div class="absolute padding-lr-10" style="width:100%;height:100px;bottom: -40px;">
+            <div class="bg-white padding-10 radius-5">
+                <div class="flex ai-center jc-around " style="height: 100%;">
+                    <div class="flex flex-column ai-center">
+                        <div class="padding-lr-10 padding-tb-5 bg-red radius-5 color-white fs-12">直推</div>
+                        <div class="margin-top-5 fs-12">0</div>
+                    </div>
+                    <div class="flex flex-column ai-center">
+                        <div class="padding-lr-10 padding-tb-5 bg-red radius-5 color-white fs-12">间推</div>
+                        <div class="margin-top-5 fs-12">0</div>
+                    </div>
+                    <div class="flex flex-column ai-center">
+                        <div class="padding-lr-10 padding-tb-5 bg-red radius-5 color-white fs-12">实名</div>
+                        <div class="margin-top-5 fs-12">0</div>
+                    </div>
+                    <div class="flex flex-column ai-center">
+                        <div class="padding-lr-10 padding-tb-5 bg-red radius-5 color-white fs-12">日活</div>
+                        <div class="margin-top-5 fs-12">0%</div>
+                    </div>
+                    <div class="flex flex-column ai-center">
+                        <div class="padding-lr-10 padding-tb-5 bg-red radius-5 color-white fs-12">新增</div>
+                        <div class="margin-top-5 fs-12">0</div>
+                    </div>
+                </div>
+                <div class="padding-tb-10 flex ai-center">
+                    <span class="iconfont icon-user"></span>
+                    <span class="fs-12 color-787C80 margin-left-10">预销户用户</span>
+                    <span style="width: 70px;height: 18px;"
+                          class="margin-left-10 radius-40 bg-red color-white fs-12 flex jc-center ai-center">点击查看</span>
+                </div>
+                <div class="padding-tb-10">
+                    <div class="eui-list box-shadow-gray radius-3">
+                        <div class="eui-item">
+                            <div class="eui-item-left">推荐人</div>
+                            <div class="eui-item-body">
+                                <div class="flex ai-center">
+                                    <div class="eui-size-30 round border bg-gray3 flex ai-center jc-center">
+                                    </div>
+                                    <div class="margin-left-10">
+                                        <div class="fs-14 color-121415">浩瀚</div>
+                                        <div class="fs-12 color-787C80">4118</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="eui-item-right">
+                                <span class="margin-right-10">15822347226</span>
+                                <span class="iconfont icon-tel color-red"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+  new Vue({
+    el: '#app',
+    mixins: [winpage],
+    data: function () {
+      return {
+        visible: false,
+      };
+    },
+    methods: {}
+  });
+</script>
+
+</body>
+
+</html>

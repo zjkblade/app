@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+    <link href="../../css/common.css" rel="stylesheet">
+
+    <style>
+        #app {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background: var(--color-gray1);
+            overflow: hidden;
+        }
+
+        .eui-item {
+            height: 0.5rem;
+        }
+    </style>
+    <script src="../../script/lib/app.responsive.js"></script>
+    <script src="../../script/lib/vue.min.js"></script>
+    <script src="../../script/lib/api.js"></script>
+    <script src="../../script/lib/jquery-3.4.1.min.js"></script>
+    <script src="../../script/common.js"></script>
+    <script src="../../script/service.js"></script>
+    <script src="../../script/mixins.js"></script>
+    <script src="../../script/components/component-header.js"></script>
+</head>
+<body>
+<div id="app">
+    <e-header id="header" :close="() => close()" title="任务中心"></e-header>
+    <div class="bg-white padding-tb-30 flex ai-center jc-center">
+        <div class="eui-size-80 border round flex ai-center jc-center bg-gray2">
+            <div class="eui-size-70 border round flex ai-center jc-center bg-positive">
+                <span class="color-white fs-20">签到</span>
+            </div>
+        </div>
+    </div>
+    <div class="padding-lr-16 margin-top-10">
+        <div class="bg-white padding-tb-10 radius-3 flex ai-center box-shadow-gray">
+            <div class="flex-equal flex jc-center fs-14">总活力值:5000</div>
+            <div style="width: 3px;height: 15px;border-radius: 2px;" class="bg-gray3"></div>
+            <div class="flex-equal flex jc-center fs-14">今日活力值:10</div>
+        </div>
+    </div>
+    <div class="padding-lr-16 margin-top-10">
+        <div class="bg-white radius-3 box-shadow-gray">
+            <div class="eui-list">
+                <div class="eui-item">
+                    <div class="eui-item-left fs-14">
+                        <span>已经连续签到</span>
+                        <span class="padding-lr-5 color-positive">1</span>
+                        <span>天</span>
+                    </div>
+                    <div class="eui-item-right fs-14" @click="showModal">
+                        <span class="iconfont icon-question fs-20"></span>
+                        <span class="margin-left-5">签到规则</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex padding-bottom-10 padding-lr-5">
+                <div class="flex-equal padding-lr-5" v-for="(sign, index) in signRules">
+                    <div class="flex flex-column ai-center jc-center radius-3 padding-tb-5"
+                         :class="{'bg-red': index === 0, 'bg-gray2': index !== 0}">
+                        <span class="flex ai-center jc-center eui-size-27 round fs-12"
+                              :class="{'color-white': index === 0, 'color-787C80': index !== 0, 'bg-positive' : index === 0, 'bg-gray3' : index !== 0}">+{{sign.score}}</span>
+                        <span class="fs-14" :class="{'color-white': index === 0, 'color-787C80': index !== 0}">{{sign.label}}</span>
+                    </div>
+                    <div style="margin-top: 2px;width: 100%;height: 1px;" :class="{'bg-gray2': index !== 0, 'bg-red': index === 0}"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="padding-lr-16 margin-top-10">
+        <div class="bg-white padding-lr-10 padding-tb-10 radius-3 box-shadow-gray">
+            <div class="flex ai-center jc-center">
+                <div class="flex-equal flex-column flex ai-center">
+                    <div class="eui-size-30 bg-gray2 round"></div>
+                    <div class="color-787C80 fs-12">我的考勤</div>
+                </div>
+                <div class="flex-equal flex-column flex ai-center">
+                    <div class="eui-size-30 bg-gray2 round"></div>
+                    <div class="color-787C80 fs-12">城市节点</div>
+                </div>
+            </div>
+            <div class="padding-tb-5">
+                <span class="fs-12">每日任务</span>
+            </div>
+            <div class="flex ai-center jc-center">
+                <div class="flex-equal flex-column flex ai-center">
+                    <div class="eui-size-30 bg-gray2 round"></div>
+                    <div class="color-787C80 fs-12">阅读文章</div>
+                </div>
+                <div class="flex-equal flex-column flex ai-center">
+                    <div class="eui-size-30 bg-gray2 round"></div>
+                    <div class="color-787C80 fs-12">邀请好友</div>
+                </div>
+                <div class="flex-equal flex-column flex ai-center">
+                    <div class="eui-size-30 bg-gray2 round"></div>
+                    <div class="color-787C80 fs-12">去商城购物</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="eui-modal padding-lr-20" :class="{visible:visible}">
+        <div class="eui-card">
+            <div class="eui-card-header">
+                <div class="eui-block flex jc-center">
+                    <span>签到规则</span>
+                </div>
+            </div>
+            <div class="eui-card-body" style="max-height: 400px;overflow-y: auto">
+                <div class="fs-14">连续签到七天未一个循环</div>
+                <div class="fs-14">未连续签到从第一天重新计算</div>
+            </div>
+            <div class="eui-card-footer">
+                <div class="eui-block flex jc-center">
+                    <div class="eui-size-30 radius-40 flex ai-center jc-center border border-black">
+                        <span class="iconfont icon-close" @click="visible = !visible"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+  new Vue({
+    el: '#app',
+    mixins: [winpage],
+    data: function () {
+      return {
+        visible: false,
+        signRules: [
+          {label: '一', score: '10'},
+          {label: '二', score: '20'},
+          {label: '三', score: '30'},
+          {label: '四', score: '40'},
+          {label: '五', score: '50'},
+          {label: '六', score: '60'},
+          {label: '七', score: '888'},
+        ]
+      };
+    },
+    methods: {
+      showModal: function () {
+        var $this = this;
+        $this.visible = true
+      },
+    }
+  });
+</script>
+
+</body>
+
+</html>

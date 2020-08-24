@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+    <link href="../../css/common.css" rel="stylesheet">
+
+    <style>
+        #app {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background: var(--color-gray1);
+            overflow: hidden;
+        }
+
+        .eui-header {
+            background: transparent !important;
+            color: #FFFFFF !important;
+        }
+
+        .eui-header-body {
+            color: #FFFFFF !important;
+        }
+
+    </style>
+    <script src="../../script/lib/app.responsive.js"></script>
+    <script src="../../script/lib/vue.min.js"></script>
+    <script src="../../script/lib/api.js"></script>
+    <script src="../../script/lib/jquery-3.4.1.min.js"></script>
+    <script src="../../script/common.js"></script>
+    <script src="../../script/service.js"></script>
+    <script src="../../script/mixins.js"></script>
+    <script src="../../script/components/component-header.js"></script>
+    <script src="../../script/components/component-tabs.js"></script>
+</head>
+<body>
+<div id="app">
+    <e-header id="header" class="bg-red" :close="() => close()" title="活力值"></e-header>
+    <div class="padding-tb-10 padding-bottom-10">
+        <div class="padding-lr-10">
+            <div class="flex jc-between fs-12">
+                <div><span>日总计：</span><span class="color-red">10</span></div>
+                <div>筛选</div>
+            </div>
+        </div>
+    </div>
+    <e-top-tabs :tab-selected="tabSelected" class="bg-white" :tabs="tabs" @event-tab-click="clickTab"></e-top-tabs>
+    <div class="bg-white padding-5 fs-13">
+        <div class="flex padding-tb-10">
+            <div class="flex-equal flex jc-center ai-center">用户</div>
+            <div class="flex-equal flex jc-center ai-center">类型</div>
+            <div class="flex-equal flex jc-center ai-center">活力值</div>
+            <div class="flex-equal flex jc-center ai-center">日期</div>
+        </div>
+        <div class="flex padding-tb-5" v-for="(item, index) in 1,10">
+            <div class="flex-equal flex jc-center ai-center">jk</div>
+            <div class="flex-equal flex jc-center ai-center">第一天签到</div>
+            <div class="flex-equal flex jc-center ai-center color-red">+10</div>
+            <div class="flex-equal flex flex-column jc-center ai-center fs-12">
+                <span>2020-08-22</span>
+                <span>03:36:12</span>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+  new Vue({
+    el: '#app',
+    mixins: [winpage],
+    data: function () {
+      return {
+        tabSelected: 'GRYJ',
+        tabs: [
+          {label: '个人业绩', name: 'GRYJ',},
+          {label: '直接用户', name: 'ZJYH',},
+          {label: '间接用户', name: 'JJYH',},
+          {label: '城市节点', name: 'CSJD',},
+        ],
+      };
+    },
+    methods: {
+      clickTab: function (tab) {
+        this.tabSelected = tab;
+      }
+    }
+  });
+</script>
+
+</body>
+
+</html>

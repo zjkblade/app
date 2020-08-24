@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+    <link href="../../css/common.css" rel="stylesheet">
+
+    <style>
+        #app {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background: var(--color-gray1);
+            overflow: hidden;
+        }
+
+        .eui-header {
+            background: transparent !important;
+            color: #FFFFFF !important;
+        }
+
+        .eui-header-body {
+            color: #FFFFFF !important;
+        }
+
+    </style>
+    <script src="../../script/lib/app.responsive.js"></script>
+    <script src="../../script/lib/vue.min.js"></script>
+    <script src="../../script/lib/api.js"></script>
+    <script src="../../script/lib/jquery-3.4.1.min.js"></script>
+    <script src="../../script/common.js"></script>
+    <script src="../../script/service.js"></script>
+    <script src="../../script/mixins.js"></script>
+    <script src="../../script/components/component-header.js"></script>
+    <script src="../../script/components/component-tabs.js"></script>
+</head>
+<body>
+<div id="app">
+    <e-header id="header" class="bg-red" :close="() => close()" title="馈赠活力分"></e-header>
+    <e-top-tabs :tab-selected="tabSelected" class="bg-white" :tabs="tabs" @event-tab-click="clickTab"></e-top-tabs>
+    <div class="padding-tb-10 padding-bottom-10 bg-white">
+        <div class="padding-lr-10">
+            <div class="flex jc-between fs-12">
+                <div>总所受馈赠活力分</div>
+                <div>筛选</div>
+            </div>
+            <div class="padding-top-10">
+                <span>275.1592</span>
+            </div>
+        </div>
+    </div>
+    <div class="absolute padding-lr-10 eui-block" style="bottom: 10px;">
+        <div class="eui-btn-block eui-btn bg-red no-border radius-5"
+             @click="util.app.openWindow('win-vitality-score-friend', './vitality_score_friend_win.html')">
+            <span class="color-white">馈赠亲友</span>
+        </div>
+    </div>
+</div>
+<script>
+  new Vue({
+    el: '#app',
+    mixins: [winpage],
+    data: function () {
+      return {
+        tabSelected: 'home',
+        tabs: [
+          {label: '馈赠详情', name: 'home',},
+          {label: '收到的馈赠', name: 'discover',},
+        ],
+      };
+    },
+    methods: {
+      clickTab: function (tab) {
+        this.tabSelected = tab;
+      }
+    }
+  });
+</script>
+
+</body>
+
+</html>
